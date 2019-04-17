@@ -13,6 +13,10 @@ body {
   position: relative;
 }
 
+#main-title {
+  text-align: center;
+}
+
 #question {
   margin-bottom: 16px;
   font-weight: bold;
@@ -58,7 +62,7 @@ body {
   content: "      不正解！";
 }
 
-#btn, #btn-wrong, #result > a {
+#btn, #btn-wrong, #btn-start, #result > a {
   background: #3498db;
   padding: 8px;
   border-radius: 4px;

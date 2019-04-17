@@ -1,6 +1,8 @@
 'use strict';
 
 {
+  const topPage = document.getElementById('toppage');
+  const btnStart = document.getElementById('btn-start');
   const question = document.getElementById('question');
   const btn = document.getElementById('btn');
   const btnWrong = document.getElementById('btn-wrong');
@@ -74,7 +76,12 @@
     }
   }
 
-  setQuiz();
+  btn.style.display = 'none';
+  btnStart.addEventListener('click', () => {
+    topPage.style.display = 'none';
+    btn.style.display = 'block';
+    setQuiz();
+  });
 
   btn.addEventListener('click', () => {
     if (btn.classList.contains('disabled')) {
@@ -83,12 +90,17 @@
     btn.classList.add('disabled');
 
     if (currentNum === currentQuizSet.length - 1) {
-      if (score < currentQuizSet.length) {
-        scoreLabelWrong.textContent = `Score: ${score} / ${currentQuizSet.length}`;
-        resultWrong.classList.add('show');
-      } else {
+      if (currentQuizSet === quizSet2) {
         scoreLabel.textContent = `Score: ${score} / ${currentQuizSet.length}`;
         result.classList.add('show');
+      } else {
+        if (score < currentQuizSet.length) {
+          scoreLabelWrong.textContent = `Score: ${score} / ${currentQuizSet.length}`;
+          resultWrong.classList.add('show');
+        } else {
+          scoreLabel.textContent = `Score: ${score} / ${currentQuizSet.length}`;
+          result.classList.add('show');
+        }
       }
     } else {
       currentNum++;
