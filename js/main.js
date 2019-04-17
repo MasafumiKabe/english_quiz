@@ -14,7 +14,6 @@
 
   const quizSet1 = [
     {q: 'What is A?', c: ['A0', 'A1', 'A2']},
-    {q: 'What is B?', c: ['B0', 'B1', 'B2']},
   ];
 
   const quizSet2 = [
