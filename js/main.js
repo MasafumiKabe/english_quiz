@@ -11,6 +11,8 @@
   const resultWrong = document.getElementById('result-wrong');
   const scoreLabel = document.querySelector('#result > p');
   const scoreLabelWrong = document.querySelector('#result-wrong > p');
+  const commentPos = document.querySelector('#comment-pos > p');
+  const commentNeg = document.querySelector('#comment-neg > p');
 
   const quizSet1 = [
     {q: 'What is A?', c: ['A0', 'A1', 'A2']},
@@ -90,13 +92,20 @@
 
     if (currentNum === currentQuizSet.length - 1) {
       if (currentQuizSet === quizSet2) {
+        if (score < currentQuizSet.length) {
+          commentPos.textContent = 'もうちょっと頑張って';
+        } else {
+          commentPos.textContent = 'やるやん';
+        }
         scoreLabel.textContent = `Score: ${score} / ${currentQuizSet.length}`;
         result.classList.add('show');
       } else {
         if (score < currentQuizSet.length) {
+          commentNeg.textContent = '○○についての理解が不十分なようです。復習しましょう！';
           scoreLabelWrong.textContent = `Score: ${score} / ${currentQuizSet.length}`;
           resultWrong.classList.add('show');
         } else {
+          commentPos.textContent = '完璧やん';
           scoreLabel.textContent = `Score: ${score} / ${currentQuizSet.length}`;
           result.classList.add('show');
         }
