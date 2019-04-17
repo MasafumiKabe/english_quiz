@@ -44,7 +44,7 @@ body {
 }
 
 #choices > li.correct::after {
-  content: " ... correct!";
+  content: "      正解！";
 }
 
 #choices > li.wrong {
@@ -55,10 +55,10 @@ body {
 }
 
 #choices > li.wrong::after {
-  content: " ... wrong!";
+  content: "      不正解！";
 }
 
-#btn, #result > a {
+#btn, #btn-wrong, #result > a {
   background: #3498db;
   padding: 8px;
   border-radius: 4px;
@@ -74,7 +74,7 @@ body {
   opacity: 0.7;
 }
 
-#result {
+#result, #result-wrong {
   position: absolute;
   width: 300px;
   background: #fff;
@@ -89,11 +89,11 @@ body {
   transition: 0.4s ease-out;
 }
 
-#result.show {
+#result.show, #result-wrong.show {
   top: 50px;
 }
 
-#result > p {
+#result > p, #result-wrong > p {
   font-size: 24px;
 }
 
